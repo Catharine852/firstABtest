@@ -1,11 +1,12 @@
-package com.afanafeva.utils;
+package com.afanaseva.utils;
 
-import com.afanafeva.core.Properties;
-import com.afanafeva.core.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.afanaseva.core.Properties;
+import com.afanaseva.core.WebDriverManager;
+import com.afanaseva.testdata.Constants;
+import com.afanaseva.testdata.Messages;
+import com.afanaseva.testdata.Timeouts;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -14,70 +15,40 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.Callable;
 
-
 public class Web {
-    /**
-     * this class contains useful static methods for convenient handling different element/actions
-     * be attentive: some method contains assertions, other ones return value.
-     */
-    private static Logger logger = LoggerFactory.getLogger(Web.class);
-    private static WebDriver driver;
 
-    /**
-     * doBefore() always to be called the first line in methods where the driver field is used set the correct value
-     * to avoid org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
-     * moved to a separate method because when you switch selenide/selenium, the method of obtaining driver will change
-     */
-    private static void doBefore() {
-//        driver = WebDriverRunner.getWebDriver(); //for Selenide
-        driver = WebDriverManager.getDriver(); //for Selenium
+    private Web() {
+        throw new RuntimeException("you do not need instance of this class");
     }
 
-    public static void setDriver(final WebDriver driver) {
-        Web.driver = driver;
-    }
+    private static final Logger logger = LoggerFactory.getLogger(Web.class);
 
-    public static WebDriver getDriver() {
+    private static WebDriver driver = driver();
+
+    public static WebDriver driver() {
+        if (driver == null) driver = WebDriverManager.getDriver();
         return driver;
     }
 
-    public static void refreshPage() {
-        doBefore();
-        String url = driver.getCurrentUrl();
-        driver.get(url);
+    public static JavascriptExecutor js() {
+        return (JavascriptExecutor) driver();
     }
+
+    public static Actions action() {
+        return new Actions(driver());
+    }
+
+    //----------------------------------------------------
 
     public static void delay(int sec) {
         logger.info(sec + " seconds delay start");
-        try {
-            Thread.sleep(sec * 1000);
-        } catch (InterruptedException ignored) {
-        }
+        pause(sec * 1000);
     }
 
-    public static WebElement findEl(String path) {
-        doBefore();
-        return driver.findElement(By.xpath(path));
-    }
-
-    public static WebElement findElUnder(WebElement e, String path) {
-        doBefore();
-        return findElsUnder(e, path).get(0);
-    }
-
-    public static List<WebElement> findElsUnder(WebElement e, String path) {
-        doBefore();
-        return e.findElements(By.xpath("." + path));
-    }
-
-    public static List<WebElement> els(String path) {
-        doBefore();
-        return driver.findElements(By.xpath(path));
-    }
-
-    public static void delayShort(int millis) {
+    public static void pause(int millis) {
         logger.info(millis + " millis delay start");
         try {
             Thread.sleep(millis);
@@ -85,15 +56,50 @@ public class Web {
         }
     }
 
-    public static void waitForPageLoading() {
-        doBefore();
-        Wait<WebDriver> wait = new WebDriverWait(driver, Long.parseLong(Properties.get("timeout")));
-        wait.until(driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
+    //----------------------------------------------------
+
+    public static WebElement findElementUnder(WebElement e, String path) {
+        return findElementsUnder(e, path).get(0);
+    }
+
+    public static List<WebElement> findElementsUnder(WebElement e, String path) {
+        return e.findElements(By.xpath("." + path));
+    }
+
+    public static List<WebElement> findElements(String path) {
+        return driver().findElements(By.xpath(path));
+    }
+
+    public static WebElement findElement(String path) {
+        return findElements(path).get(0);
+    }
+
+    //----------------------------------------------------
+
+    public static void waitPageLoaded() {
+        Wait<WebDriver> wait = new WebDriverWait(driver(), Long.parseLong(Properties.get("timeout")));
+        wait.until(driver -> js().executeScript("return document.readyState").equals("complete"));
+    }
+
+    public static String getLocator(WebElement e) {
+        String locator = ("" + e).split(" -> ")[1].split(": ")[1];
+        return String.format("\"%s\"", locator.substring(0, locator.length() - 1));
+    }
+
+    //----------------------------------------------------
+
+    public static void clickActions(WebElement element) {
+        action().moveToElement(element).click(element).build().perform();
+    }
+
+    public static void clickJs(WebElement element) {
+        js().executeScript("arguments[0].click()", element);
     }
 
     public static void clickElement(WebElement element) {
-        StringBuilder log = new StringBuilder("Click " + WebUtils.getLocator(element));
+        StringBuilder log = new StringBuilder("Click " + getLocator(element));
         waitUntil(Messages.ELEMENT_TO_BE_CLICKABLE, element::isEnabled, Timeouts.ELEMENT_TO_BE_CLICKABLE);
+        if(!isElementInViewPort(element)) scrollToElement(element);
         boolean isPrevClickedWasSuccessful = false;
         try {
             element.click();
@@ -104,7 +110,7 @@ public class Web {
         if (!isPrevClickedWasSuccessful) {
             try {
                 log.append("Try click by Actions; ");
-                WebUtils.clickActions(element);
+                clickActions(element);
                 log.append("Click by Actions successful.");
                 isPrevClickedWasSuccessful = true;
             } catch (Exception exActions) {
@@ -114,7 +120,7 @@ public class Web {
         if (!isPrevClickedWasSuccessful) {
             try {
                 log.append("Try click by JS; ");
-                WebUtils.clickJs(element);
+                clickJs(element);
                 log.append("Click by JS successful.");
                 isPrevClickedWasSuccessful = true;
             } catch (Exception exJx) {
@@ -124,7 +130,7 @@ public class Web {
         if (!isPrevClickedWasSuccessful) {
             try {
                 log.append("Try complex click; ");
-                WebUtils.complexClick(element);
+                complexClick(element);
                 log.append("Complex click successful.");
             } catch (Exception exComplex) {
                 log.append("Click failed.");
@@ -133,12 +139,58 @@ public class Web {
             }
         }
         logger.info(log.toString());
-        WebUtils.pause(100);
+        pause(100);
+    }
+
+    public static void complexClick(WebElement e) {
+        waitUntilPageIsLoaded();
+        getClickWait().withMessage("Click failed").until(driver -> {
+            clickJs(e);
+            return true;
+        });
+    }
+
+    private static FluentWait<WebDriver> getClickWait() {
+        return new WebDriverWait(driver(), Constants.CLICK_TIMEOUT)
+                .ignoring(StaleElementReferenceException.class)
+                .ignoring(ElementClickInterceptedException.class)
+                .ignoring(ElementNotInteractableException.class);
+    }
+
+    public static void dragAndDrop(Point start, Point finish){
+        int xFin = finish.getX() - start.getX();
+        int yFin = finish.getY() - start.getY();
+        action()
+                .moveByOffset(start.getX(), start.getY())
+                .clickAndHold()
+                .moveByOffset(xFin, yFin).release()
+                .build().perform();
+    }
+
+    //----------------------------------------------------
+
+    public static void scrollToElement(WebElement e) {
+        js().executeScript("arguments[0].scrollIntoView()", e);
+    }
+
+    public static boolean isElementInViewPort(WebElement e) {
+        Dimension wd = driver().manage().window().getSize();
+        return e.getRect().getPoint().getX() < wd.height;
+    }
+
+    //----------------------------------------------------
+
+    public static void waitUntilPageIsLoaded() {
+        WebDriverWait wait = new WebDriverWait(driver(), Constants.PAGE_LOADING_TIMEOUT);
+        wait.until(driver ->
+                js().executeScript("return document.readyState").equals("complete"));
+        wait.until(driver ->
+                driver.findElements(By.xpath("//div[contains(@class, 'ProgressIndicator')]")).isEmpty());
     }
 
 
     public static WebElement waitElementToBeClickable(WebElement e) {
-        WebDriverWait wait = new WebDriverWait(driver, Timeouts.ELEMENT_TO_BE_CLICKABLE);
+        WebDriverWait wait = new WebDriverWait(driver(), Timeouts.ELEMENT_TO_BE_CLICKABLE);
         wait.until(ExpectedConditions.elementToBeClickable(e));
         return e;
     }
@@ -148,8 +200,7 @@ public class Web {
     }
 
     public static void waitUntil(String message, Callable<Boolean> c, int timeout) {
-        doBefore();
-        FluentWait<WebDriver> wait = new WebDriverWait(driver, timeout).withMessage(message);
+        FluentWait<WebDriver> wait = new WebDriverWait(driver(), timeout).withMessage(message);
         wait.until(driver -> {
             try {
                 return c.call();
@@ -159,13 +210,14 @@ public class Web {
         });
     }
 
+    //----------------------------------------------------
+
     public static void typeText(String path, String text) {
-        typeText(findEl(path), text);
+        typeText(findElement(path), text);
     }
 
     public static void typeText(WebElement e, String text) {
-        doBefore();
-        e = waitElementToBeClickable(e);
+        waitElementToBeClickable(e);
         e.sendKeys(text);
         if (!e.getText().equals(text)) {
             e.clear();
@@ -173,5 +225,30 @@ public class Web {
         }
     }
 
+    //----------------------------------------------------
 
+    public static String[] expectOpensInNewTabWhenClick(WebElement e) {
+        return openInNewTab(() -> {
+            complexClick(e);
+        });
+    }
+
+    public static String[] openInNewTab(Runnable action) {
+        String startTab = driver().getWindowHandle();
+        String newTab = null;
+        Set<String> prevTabs = driver().getWindowHandles();
+        action.run();
+        Set<String> newTabs = driver().getWindowHandles();
+        if (newTabs.size() != prevTabs.size() + 1) {
+            throw new RuntimeException("Unexpected tab count");
+        }
+        for (String tab : newTabs) {
+            if (!prevTabs.contains(tab)) {
+                newTab = tab;
+                break;
+            }
+        }
+        driver().switchTo().window(newTab);
+        return new String[]{startTab, newTab};
+    }
 }

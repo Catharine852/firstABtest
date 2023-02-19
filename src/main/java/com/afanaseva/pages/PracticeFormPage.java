@@ -1,8 +1,6 @@
-package com.afanaseva.pages.blocks;
+package com.afanaseva.pages;
 
 
-import com.afanaseva.pages.BasePage;
-import com.afanaseva.pages.ModalWindow;
 import com.afanaseva.pages.elements.Calendar;
 import com.afanaseva.pages.elements.Checkbox;
 import com.afanaseva.pages.elements.DropdownType1;

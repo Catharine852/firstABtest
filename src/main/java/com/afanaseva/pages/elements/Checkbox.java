@@ -6,38 +6,46 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RadioButton extends BaseElement {
+public class Checkbox extends BaseElement {
     private WebElement wrap;
-    private static final String WRAP_BY_LABEL = "//div[text()='%s']/ancestor::div[contains(@id, 'Wrap')]";
+    private static final String WRAP_BY_LABEL = "//label[text()='%s']/ancestor::div[@id='hobbiesWrapper']";
     private static final String INPUT_BY_LABEL = "//label[text()='%s']/preceding-sibling::input";
     private static final String OPTIONS_LIST = "//input/following-sibling::label";
 
-    private RadioButton(WebElement wrap) {
+    private Checkbox(WebElement wrap) {
         this.wrap = wrap;
     }
 
 
-    public static RadioButton byLabel(String label) {
+    public static Checkbox byLabel(String label) {
         return byPath(String.format(WRAP_BY_LABEL, label));
     }
 
-    public static RadioButton byPath(String path) {
-        return byWrapElement(Web.findEl(path));
+    public static Checkbox byPath(String path) {
+        return byWrapElement(Web.findElement(path));
     }
 
-    public static RadioButton byWrapElement(WebElement wrap) {
-        return new RadioButton(wrap);
+    public static Checkbox byWrapElement(WebElement wrap) {
+        return new Checkbox(wrap);
     }
 
     public List<String> getOptions() {
-        return Web.findElsUnder(wrap, OPTIONS_LIST)
+        return Web.findElementsUnder(wrap, OPTIONS_LIST)
                 .stream()
                 .map(e -> e.getAttribute("innerText"))
                 .collect(Collectors.toList());
     }
 
-    public RadioButton chooseOption(String option) {
-        clickElement(Web.findElUnder(wrap, String.format(INPUT_BY_LABEL, option)));
+    public Checkbox checkOption(String option) {
+        if (!isChecked(option)) toggleOption(option);
         return this;
+    }
+
+    private Boolean isChecked(String option) {
+        return false; //FIXME pseudo element
+    }
+
+    private void toggleOption(String option) {
+        clickElement(Web.findElementUnder(wrap, String.format(INPUT_BY_LABEL, option)));
     }
 }

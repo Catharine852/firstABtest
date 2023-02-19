@@ -1,6 +1,6 @@
-package com.afanafeva.pages.elements;
+package com.afanaseva.pages.elements;
 
-import com.afanafeva.utils.Web;
+import com.afanaseva.utils.Web;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public class RadioButton extends BaseElement {
     }
 
     public static RadioButton byPath(String path) {
-        return byWrapElement(Web.findEl(path));
+        return byWrapElement(Web.findElement(path));
     }
 
     public static RadioButton byWrapElement(WebElement wrap) {
@@ -30,14 +30,14 @@ public class RadioButton extends BaseElement {
     }
 
     public List<String> getOptions() {
-        return Web.findElsUnder(wrap, OPTIONS_LIST)
+        return Web.findElementsUnder(wrap, OPTIONS_LIST)
                 .stream()
                 .map(e -> e.getAttribute("innerText"))
                 .collect(Collectors.toList());
     }
 
     public RadioButton chooseOption(String option) {
-        clickElement(Web.findElUnder(wrap, String.format(INPUT_BY_LABEL, option)));
+        clickElement(Web.findElementUnder(wrap, String.format(INPUT_BY_LABEL, option)));
         return this;
     }
 }

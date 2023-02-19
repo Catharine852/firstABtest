@@ -4,21 +4,96 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f865a2f4-9e77-43c5-9318-1f1ca59d2594" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+    <list default="true" id="f865a2f4-9e77-43c5-9318-1f1ca59d2594" name="Changes" comment="readMe">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/core/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/core/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/core/Navigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/core/Navigation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/core/Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/core/Properties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/core/WebDriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/core/WebDriverManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/core/Workarounds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/core/Workarounds.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/BrowserWindowsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/BrowserWindowsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/ModalWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/ModalWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/PracticeFormPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/PracticeFormPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/SliderPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/SliderPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/blocks/MenuList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/blocks/MenuList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/elements/BaseElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/elements/BaseElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/elements/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/elements/Calendar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/elements/Checkbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/elements/Checkbox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/elements/DropdownType1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/elements/DropdownType1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/elements/RadioButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/elements/RadioButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/tabs/NewTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/tabs/NewTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/tabs/NewWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/tabs/NewWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/tabs/NewWindowMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/tabs/NewWindowMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/tabs/TabsTestable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/pages/tabs/TabsTestable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/testdata/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/testdata/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/testdata/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/testdata/Messages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/testdata/PracticeFormValidData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/testdata/PracticeFormValidData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/testdata/Timeouts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/testdata/Timeouts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afanaseva/utils/Web.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afanaseva/utils/Web.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/FirstTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FirstTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="firstABtest" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="firstABtest" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="2KEWOjUtnuSJK6FDLcEbB1ore6H" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -26,12 +101,126 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ekaterina.afanasieva/IdeaProjects/firstABtest&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ekaterina.afanasieva\IdeaProjects\firstABtest\src\test\resources" />
+      <recent name="C:\Users\ekaterina.afanasieva\IdeaProjects\firstABtest\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\CrawF\IdeaProjects\firstABtest\src\main\java\com\afanaseva\testdata" />
+      <recent name="C:\Users\ekaterina.afanasieva\IdeaProjects\firstABtest\src\test\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.afanaseva.pages.elements" />
+      <recent name="com.afanafeva.utils" />
+      <recent name="com.afanafeva.core" />
+      <recent name="com.afanafeva.pages" />
+      <recent name="org" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.FirstTest">
+    <configuration name="WebDriverManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.afanaseva.core.WebDriverManager" />
+      <module name="firstABtest.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.afanaseva.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FirstTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="firstABtest.test" />
+      <shortenClasspath name="MANIFEST" />
+      <useClassPathOnly />
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FirstTest" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FirstTest.browserWindowsTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="firstABtest.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FirstTest" />
+      <option name="METHOD_NAME" value="browserWindowsTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FirstTest.practiceFormTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="firstABtest.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FirstTest" />
+      <option name="METHOD_NAME" value="practiceFormTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FirstTest.sliderTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="firstABtest.test" />
+      <shortenClasspath name="MANIFEST" />
+      <useClassPathOnly />
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FirstTest" />
+      <option name="METHOD_NAME" value="sliderTest" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.FirstTest" />
+        <item itemvalue="TestNG.FirstTest.sliderTest" />
+        <item itemvalue="TestNG.FirstTest.browserWindowsTest" />
+        <item itemvalue="TestNG.FirstTest.practiceFormTest" />
+        <item itemvalue="Application.WebDriverManager" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -41,6 +230,40 @@
       <option name="presentableId" value="Default" />
       <updated>1673540195280</updated>
     </task>
+    <task id="LOCAL-00001" summary="readMe">
+      <created>1676840193447</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1676840193447</updated>
+    </task>
+    <task id="LOCAL-00002" summary="readMe">
+      <created>1676840351727</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676840351727</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="readMe" />
+    <option name="LAST_COMMIT_MESSAGE" value="readMe" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

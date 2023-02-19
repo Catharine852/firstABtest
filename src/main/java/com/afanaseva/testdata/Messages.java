@@ -1,4 +1,4 @@
-package com.afanaseva.utils;
+package com.afanaseva.testdata;
 
 public interface Messages {
     String PROP_LOADED = "Properties loaded successfully: ";
