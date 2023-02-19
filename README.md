@@ -22,4 +22,4 @@ To get a local copy up and running follow these simple
 example steps.
 
 1. Clone the repo https://github.com/Catharine852/firstABtest.git
-2. 
+2. Open it in IntelliJ IDEA
